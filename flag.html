@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="STYLE1.css">
+</head>
+<body>
+    
+    <div class="one">
+        <h1 class="he">country Details</h1>
+        <input type="text" class="two"   id="in1" placeholder="enter a country name">
+         <button id="p2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="38" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg></button> 
+          <br><br><br><br>
+      <div class="new">
+          <h1 id="res"></h1><br>
+           <h1 id="re"></h1><br>
+           <h1 id="res1"></h1><br>
+           <h1 id="res2"></h1><br>
+           <h1 id="res3"></h1><br>
+  
+        </div>
+       <div class="image">
+          <img src=""  id="res4" height="150px" width="400px"  >
+        </div>
+    </div>
+    <script>
+     let btn= document.getElementById('p2').addEventListener("click",()=> {
+              let det=document.getElementById("in1").value
+               let url=`https://restcountries.com//v2/name/${det}`
+                let fetched_url=fetch(url)
+            fetched_url.then((response)=>{
+                if(!response.ok){
+                  throw new error("network is not responding")
+                   }
+                 else{
+                   return response.json()
+                 }
+    
+             })
+         .then((datas)=>{
+             const countryDetails=datas[0]
+               const f1=countryDetails.flags.png
+             document.getElementById("res").innerHTML=`country name:${countryDetails.name}`
+             document.getElementById("re").innerHTML=`callingCodes:${countryDetails.callingCodes}`
+             document.getElementById("res1").innerHTML=`capital:${countryDetails.capital}`
+             document.getElementById("res2").innerHTML=`Region:${countryDetails.region} `
+              document.getElementById("res3").innerHTML=`population:${countryDetails.population} `
+              document.getElementById("res4").src=f1
+       
+            })
+          .catch((error)=>{
+              console.log("there is a problem with fetch operation",error)
+           })
+      })
+      // setTimeout(function(){
+       //     document.getElementById("res4").style.display="block";},3000)
+    </script>
+</body>
+</html>

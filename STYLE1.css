@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+}
+.one{
+    height: 650px;
+    width: 650px;
+    /* background-color: rgb(124, 186, 223); */
+    background-image: url("hero-3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid rgb(49, 47, 47);
+    margin-top: 50px;
+    margin-left: 400px;
+}
+
+.two{
+    height: 40px;
+    width: 300px;
+    position: relative;
+    top: 15px;
+
+    left: 80px;
+    border: 2px solid black;
+}
+#p2{
+    position: relative;
+    left: 60px;
+}
+
+button{
+    position: relative;
+    top: 28px;
+    left: 20px;
+}
+h2{
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.he{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new{
+    /* display: flex; */
+    position: relative;
+    left: 60px;
+    justify-content: center;
+    align-items: center;
+}
+img::after{
+    display:inline;
+}
